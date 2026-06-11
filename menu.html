@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Menu | Canton Kitchen 老招牌</title>
+    <meta name="description" content="Canton Kitchen 老招牌菜单浏览页，只显示菜品图片与中英文菜名，价格请以门店、线上点餐或 WhatsApp 确认为准。" />
+    <link rel="preload" as="image" href="assets/top10-assam-steamed-fish.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="menu.css" />
+  </head>
+  <body class="menu-page">
+    <header class="site-header menu-header">
+      <a class="brand" href="index.html" aria-label="Canton Kitchen home">
+        <img src="assets/ck-logo.png" alt="Canton Kitchen 老招牌" />
+      </a>
+      <div class="header-actions">
+        <a class="mini-btn mini-gold" href="https://cantonkitchen.feedme.vip" target="_blank" rel="noreferrer">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 7h12l-1 14H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span>Order Online</span>
+        </a>
+        <a class="mini-btn mini-green" href="https://wa.me/" target="_blank" rel="noreferrer">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21l1.7-5.1A9 9 0 1 1 8 19.2z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+      <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-panel" aria-label="Main navigation">
+        <a href="index.html">首页</a>
+        <a href="top10.html">10大招牌</a>
+        <a href="soup.html">炭火慢煲汤</a>
+        <a href="event-hall.html">桂粤宴会厅</a>
+        <a href="cooking-paste.html">老招牌出品</a>
+        <a href="#outlets">分店</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="menu-hero">
+        <div class="menu-hero-copy">
+          <p>我们的菜单</p>
+          <h1>OUR MENU</h1>
+          <span>浏览菜品图片与中英文菜名，价格和供应情况请以门店、线上点餐或 WhatsApp 确认为准。</span>
+        </div>
+      </section>
+
+      <section id="outlets" class="menu-wrap outlet-section">
+        <div class="menu-title-row">
+          <div>
+            <h2>请选择门店查看菜单</h2>
+            <p>SELECT YOUR OUTLET</p>
+          </div>
+          <small>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8h.01"/><path d="M11 12h1v5h1"/></svg>
+            不同门店菜单或供应情况可能有所不同
+          </small>
+        </div>
+
+        <div class="outlet-grid" id="outletGrid"></div>
+      </section>
+
+      <section id="categories" class="menu-wrap category-section">
+        <div class="category-head">
+          <h2>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 7h12l-1 14H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+            菜单分类
+          </h2>
+          <button class="all-menu-button" type="button" data-category="all">查看全部菜单 <span>⌄</span></button>
+        </div>
+        <div class="category-scroll" id="categoryScroll" aria-label="Menu categories"></div>
+      </section>
+
+      <section id="featured" class="menu-wrap featured-section">
+        <h2 id="menuTitle">精选菜品 <span>(Happy Garden)</span></h2>
+        <div class="dish-menu-grid" id="menuGrid"></div>
+      </section>
+
+      <section class="menu-wrap menu-ai">
+        <div class="bot-face" aria-hidden="true"><span></span></div>
+        <div>
+          <h2>不知道吃什么？</h2>
+          <p>让 AI 服务员根据人数、预算、口味与门店，帮您快速配一桌适合的菜。</p>
+          <div class="tag-row"><span>人数</span><span>预算</span><span>口味偏好</span><span>有小孩/长辈</span><span>不吃辣等</span></div>
+        </div>
+        <div class="band-actions">
+          <a class="btn btn-green" href="#featured">问 AI 服务员</a>
+          <a class="btn btn-outline" href="https://wa.me/" target="_blank" rel="noreferrer">直接 WhatsApp</a>
+        </div>
+      </section>
+
+      <section class="menu-wrap menu-note">
+        <p>菜单图片仅供参考，出品以实物为准。</p>
+        <p>菜品供应或会因门店与当日情况有所不同。</p>
+        <p>价格请以门店 / 线上点餐 / WhatsApp 确认为准。</p>
+      </section>
+    </main>
+
+    <footer id="order" class="menu-action-footer">
+      <a href="https://wa.me/" target="_blank" rel="noreferrer">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21l1.7-5.1A9 9 0 1 1 8 19.2z"/></svg>
+        <span>WhatsApp<small>咨询 / 订位</small></span>
+      </a>
+      <a href="https://cantonkitchen.feedme.vip" target="_blank" rel="noreferrer">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 7h12l-1 14H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        <span>Order Online<small>在线点餐</small></span>
+      </a>
+      <a href="tel:0379719309">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        <span>Call Us<small>致电门店</small></span>
+      </a>
+      <a href="#outlets">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-12A7 7 0 1 0 5 9c0 6.8 7 12 7 12z"/><circle cx="12" cy="9" r="2"/></svg>
+        <span>Outlets<small>门店位置</small></span>
+      </a>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      const outlets = [
+        {
+          id: "happy-garden",
+          name: "Happy Garden",
+          badge: "桂粤宴会厅",
+          image: "assets/shop-happy-garden.png",
+          description: "适合家庭聚餐、包厢、桂粤宴会厅与活动宴席。",
+          opening: "Daily 10:30am - 10:30pm",
+          breakTime: "休息时间：3:00pm - 5:00pm"
+        },
+        {
+          id: "garden-view",
+          name: "Garden View Restaurant",
+          badge: "炭火慢煲汤",
+          image: "assets/shop-garden-view.png",
+          description: "适合炭火慢煲汤、家庭聚餐、旅游团与乡土风味用餐。",
+          opening: "Daily 10:00am - 10:00pm",
+          breakTime: "无休息时间"
+        },
+        {
+          id: "paradigm-mall",
+          name: "Paradigm Mall",
+          badge: "商场用餐",
+          image: "assets/shop-paradigm-mall.png",
+          description: "适合商场用餐、日常聚餐、套餐与方便用餐。",
+          opening: "Daily 10:00am - 10:00pm",
+          breakTime: "无休息时间"
+        }
+      ];
+
+      const categories = [
+        ["all", "全部"],
+        ["starter", "开胃 / 甜品"],
+        ["fish", "鱼鲜"],
+        ["wild-fish", "野生河鱼"],
+        ["seafood", "海鲜"],
+        ["kampung-chicken", "菜园鸡"],
+        ["chicken", "鸡肉"],
+        ["pork", "猪肉"],
+        ["vegetable", "鲜蔬"],
+        ["tofu", "豆腐"],
+        ["egg", "鸡蛋"],
+        ["soup", "羹汤"],
+        ["rice-noodle", "粉面饭"]
+      ];
+
+      const rawItems = [
+        ["香辣酥炸金针菇", "Spicy Fried Enoki", "starter"],
+        ["金沙奶黄糕", "Custard Cake", "starter"],
+        ["凤凰球", "Phoenix Ball", "starter"],
+        ["一口芋头酥", "Crispy Yam Ball", "starter"],
+        ["双味生鱼", "Two Styles Sang Yu Fillet", "fish"],
+        ["港式清蒸生鱼", "Steam Sang Yu", "fish"],
+        ["鲈鱼头", "Fish Head", "fish"],
+        ["潮汕菜脯蒸巴丁", "Signature Steamed Patin", "fish", "CK_Signature_Steamed_Patin.png"],
+        ["上汤啦啦蒸巴丁", "Clam Soup Patin", "fish"],
+        ["上汤啦啦金凤煲", "Clam Soup Tilapia", "fish"],
+        ["顺壳", "Sand Goby", "wild-fish", "CK_Sand_Goby.png"],
+        ["龙虎斑", "Dragon Tiger Grouper", "wild-fish"],
+        ["巴丁", "Patin Fish", "wild-fish"],
+        ["红尾白须公", "Redfail Catfish", "wild-fish"],
+        ["金凤鱼", "Tilapia Fish", "wild-fish"],
+        ["厚切鱼片", "Fish Fillet", "fish"],
+        ["古法炬生虾", "Baked River Prawn", "seafood", "CK_Baked_River_Prawn.png"],
+        ["干煎生虾银丝卷", "Deep Fried River Prawn", "seafood"],
+        ["海洋双鲜", "Ocean Twin Seafood（虾球 & 苏东）", "seafood", "CK_Ocean_Twin_Seafood.png"],
+        ["酸甘蒸海鲜盘", "Lime Steam Seafood Platter", "seafood"],
+        ["明虾", "Ming Prawn", "seafood"],
+        ["虾球", "Prawn Ball", "seafood", "CK_Prawn_Ball.png"],
+        ["鸳鸯虾球", "Dual Flavour Prawn Ball", "seafood", "CK_Dual_Flavour_Prawn_Ball.png"],
+        ["苏东", "Sotong", "seafood"],
+        ["啦啦", "Clam", "seafood"],
+        ["带子", "Scallop", "seafood"],
+        ["广西白切菜园鸡", "Guang Xi Chicken", "kampung-chicken", "CK_Guang_Xi_Chicken.png"],
+        ["味淋炒菜园鸡", "Stir-fried Chicken with Ginger", "kampung-chicken", "CK_Stir_fried_Chicken_with_Ginger.png"],
+        ["麻油姜菜园鸡", "Sesame Oil Chicken", "kampung-chicken"],
+        ["黄酒菜园鸡", "Chicken With Chinese Wine", "kampung-chicken", "CK_Chicken_With_Chinese_Wine.png"],
+        ["咖喱烧肉滑鸡煲", "Curry Chicken w Roast Pork", "chicken", "CK_Curry_Chicken_w_Roast_Pork.png"],
+        ["豉汁苦瓜焖鸡煲", "Braised Chicken w Bitter Gourd", "chicken"],
+        ["柠檬鸡", "Lemon Chicken", "chicken", "CK_Lemon_Chicken.png"],
+        ["特色炸鸡", "Fried Chicken", "chicken"],
+        ["鸳鸯炸鸡", "Twin Flavour Fried Chicken", "chicken"],
+        ["外婆红烧肉", "Grandma’s Braised Pork Belly", "pork"],
+        ["佛钵飘香", "Yam Basket", "pork"],
+        ["港式生炒菠萝排骨", "Hong Kong Style Stir-fried Pork Ribs with Pineapple", "pork"],
+        ["日式咸蛋酱排骨", "JPN Pork Ribs", "pork"],
+        ["广西扣肉", "Guang Xi Braised Pork", "pork", "06_广西扣肉_Guang_Xi_Braised_Pork.png"],
+        ["干煎花肉", "Stir Fried Crispy Pork", "pork", "CK_Stir_Fried_Crispy_Pork.png"],
+        ["咸鱼花肉煲", "Pork Belly & Salted Fish", "pork", "CK_Pork_Belly_and_Salted_Fish.png"],
+        ["咕噜肉", "Sweet & Sour Pork", "pork", "CK_Sweet_and_Sour_Pork.png"],
+        ["排骨王", "Pork Ribs King", "pork", "CK_Pork_Ribs_King.png"],
+        ["虾米富贵豆", "French Bean", "vegetable", "CK_French_Bean.png"],
+        ["富贵豆", "French Bean", "vegetable", "CK_French_Bean.png"],
+        ["虾酱猪油渣蕹菜", "Kangkung Shrimp Paste", "vegetable"],
+        ["虾米椒仔四联豆", "Dried Shrimp & Chilli Four Angled Bean", "vegetable", "CK_Dried_Shrimp_Chilli_Four_Angled_Bean.png"],
+        ["苦瓜", "Bitter Gourd", "vegetable", "CK_Bitter_Gourd.png"],
+        ["时日鲜蔬", "Seasonal Fresh Vegetable", "vegetable"],
+        ["四大天王", "Four Type Of Beans", "vegetable", "CK_Four_Type_Of_Beans.png"],
+        ["鸳鸯菜炒杂", "Dual Flavour Vege w Assortment", "vegetable", "CK_Dual_Flavour_Vege_w_Assortment.png"],
+        ["蚝油香港芥兰", "Oyster Sauce HK Kailan", "vegetable"],
+        ["腊肠炒香港芥兰", "Stir-Fried HK Kailan w CN sausage", "vegetable", "CK_Stir_Fried_HK_Kailan_w_CN_Sausage.png"],
+        ["腊肠炒鸳鸯菜", "Stir-Fried Dual Flavour w CN sausage", "vegetable", "CK_Stir_Fried_Dual_Flavour_w_CN_Sausage.png"],
+        ["烧肉豆角", "French Bean with pork", "vegetable", "CK_French_Bean_with_Pork.png"],
+        ["瑶柱烩西兰花", "Broccoli w Dry Scallop", "vegetable"],
+        ["瑶柱烩小白菜", "Baby Bak Choy w Dry Scallop", "vegetable", "CK_Baby_Bak_Choy_w_Dry_Scallop.png"],
+        ["金汤瑶柱西兰花", "Golden Soup Broccoli w Dry Scallop", "vegetable"],
+        ["南乳家乡斋", "Claypot Mix Vegetables", "vegetable"],
+        ["花菇烩豆根", "Mushroom With Dried Bean Curd", "tofu"],
+        ["菜脯豆腐", "Bean Curd w Preserved Radish", "tofu"],
+        ["广西酿豆腐卜", "Guang Xi Stuffed Tofu Ball", "tofu", "02_广西酿豆腐卜_Guang_Xi_Stuffed_Tofu_Ball.png"],
+        ["枫林豆腐", "Signature Tofu", "tofu", "CK_Signature_Tofu.png"],
+        ["麻婆豆腐", "Mapo Tofu", "tofu"],
+        ["麦片豆腐", "Cereal Tofu", "tofu"],
+        ["金汤瑶柱豆腐", "Golden Soup Tofu w Dry Scallop", "tofu", "CK_Golden_Soup_Tofu_w_Dry_Scallop.png"],
+        ["秘制茄酱炒蛋", "Homemade Tomato Sauce Egg", "egg", "CK_Homemade_Tomato_Sauce_Egg.png"],
+        ["田七叶炒蛋", "Tian Qi Leaf w Egg", "egg", "CK_Tian_Qi_Leaf_w_Egg.png"],
+        ["啦啦蒸蛋", "Clam Steam Egg", "egg", "CK_Clam_Steam_Egg.png"],
+        ["虾球蒸蛋", "Prawn Ball Steam Egg", "egg", "CK_Prawn_Ball_Steam_Egg.png"],
+        ["芙蓉蛋", "Fu Yong Egg", "egg", "CK_Fu_Yong_Egg.png"],
+        ["金汤鱼鳔豆腐羹", "Fish Maw w Golden Tofu Soup", "soup", "CK_Fish_Maw_w_Golden_Tofu_Soup.png"],
+        ["木瓜南杏排骨汤", "Papaya & Almond Pork Rib Soup", "soup", "03_木瓜南北杏排骨汤_Papaya_Almond_Pork_Rib_Soup.png"],
+        ["黑豆核桃猪尾汤", "Black Bean & Walnut Pork Tail Soup", "soup", "02_黑豆核桃猪尾汤_Black_Bean_Walnut_Pork_Tail_Soup.png"],
+        ["海底椰炖鸡汤", "Double-Boiled Chicken with Sea Coconut", "soup", "CK_Double_Boiled_Chicken_with_Sea_Coconut.png"],
+        ["虫草花炖鸡汤", "Double-Boiled Chicken with Cordyceps Flower", "soup", "06_虫草花炖鸡汤_Cordyceps_Flower_Chicken_Soup.png"]
+      ];
+
+      const descriptionByCategory = {
+        starter: "适合作为开胃小食或饭前分享。",
+        fish: "鱼鲜类菜式，适合家庭聚餐分享。",
+        "wild-fish": "河鱼与鲜鱼类选择，供应情况请向门店确认。",
+        seafood: "海鲜类菜式，适合多人分享与宴客。",
+        "kampung-chicken": "菜园鸡风味，适合一家大小用餐。",
+        chicken: "鸡肉类菜式，适合配饭和家庭分享。",
+        pork: "猪肉类菜式，口味扎实，适合配饭。",
+        vegetable: "鲜蔬类选择，适合搭配主菜平衡一桌。",
+        tofu: "豆腐类菜式，口感温和，适合大人小孩。",
+        egg: "鸡蛋类菜式，适合家庭日常用餐。",
+        soup: "汤羹类菜式，适合聚餐时搭配主菜。",
+        "rice-noodle": "粉面饭类，适合一人餐或简单午晚餐。"
+      };
+
+      const fallbackImage = "assets/menu-fish.jpg";
+      const categoryNames = Object.fromEntries(categories);
+      const menuItems = outlets.flatMap((outlet) =>
+        rawItems.map(([chineseName, englishName, category, imageName]) => ({
+          outlet: outlet.id,
+          category,
+          chineseName,
+          englishName,
+          image: imageName ? `assets/menu-food/${imageName}` : fallbackImage,
+          description: descriptionByCategory[category] || "适合家庭聚餐与日常用餐。"
+        }))
+      );
+
+      let selectedOutlet = "happy-garden";
+      let selectedCategory = "all";
+
+      const outletGrid = document.getElementById("outletGrid");
+      const categoryScroll = document.getElementById("categoryScroll");
+      const menuGrid = document.getElementById("menuGrid");
+      const menuTitle = document.getElementById("menuTitle");
+
+      function renderOutlets() {
+        outletGrid.innerHTML = outlets.map((outlet) => `
+          <article class="outlet-card ${outlet.id === selectedOutlet ? "is-selected" : ""}" data-outlet="${outlet.id}">
+            <img src="${outlet.image}" alt="${outlet.name}" />
+            ${outlet.id === selectedOutlet ? `<button type="button" aria-label="${outlet.name} selected"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></button>` : ""}
+            <div>
+              <h3>${outlet.name} <span>${outlet.badge}</span></h3>
+              <p>${outlet.description}</p>
+              <small>${outlet.opening}</small>
+              <small>${outlet.breakTime}</small>
+            </div>
+          </article>
+        `).join("");
+        outletGrid.querySelectorAll("[data-outlet]").forEach((card) => {
+          card.addEventListener("click", () => {
+            selectedOutlet = card.dataset.outlet;
+            selectedCategory = "all";
+            render();
+          });
+        });
+      }
+
+      function renderCategories() {
+        categoryScroll.innerHTML = categories.map(([id, label]) => `
+          <button type="button" class="category-pill ${id === selectedCategory ? "active" : ""}" data-category="${id}">
+            <span>${label}</span>
+          </button>
+        `).join("");
+        categoryScroll.querySelectorAll("[data-category]").forEach((button) => {
+          button.addEventListener("click", () => {
+            selectedCategory = button.dataset.category;
+            render();
+          });
+        });
+        document.querySelector(".all-menu-button").onclick = () => {
+          selectedCategory = "all";
+          render();
+        };
+      }
+
+      function whatsappLink(item) {
+        const outlet = outlets.find((entry) => entry.id === selectedOutlet);
+        const message = `您好，我想咨询老招牌菜单。\\n门店: ${outlet.name}\\n菜品: ${item.chineseName} ${item.englishName}\\n请问今天有供应吗？`;
+        return `https://wa.me/?text=${encodeURIComponent(message)}`;
+      }
+
+      function renderMenu() {
+        const outlet = outlets.find((entry) => entry.id === selectedOutlet);
+        const filtered = menuItems.filter((item) =>
+          item.outlet === selectedOutlet && (selectedCategory === "all" || item.category === selectedCategory)
+        );
+        menuTitle.innerHTML = `${selectedCategory === "all" ? "全部菜品" : categoryNames[selectedCategory]} <span>(${outlet.name})</span>`;
+        menuGrid.innerHTML = filtered.map((item) => `
+          <article class="menu-dish">
+            <img src="${item.image}" alt="${item.chineseName} ${item.englishName}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackImage}'" />
+            <div>
+              <small>${categoryNames[item.category]}</small>
+              <h3>${item.chineseName}</h3>
+              <p class="dish-english">${item.englishName}</p>
+              <p>${item.description}</p>
+              <div class="menu-card-actions">
+                <a href="#featured">Ask AI</a>
+                <a href="${whatsappLink(item)}" target="_blank" rel="noreferrer">WhatsApp</a>
+              </div>
+            </div>
+          </article>
+        `).join("");
+      }
+
+      function render() {
+        renderOutlets();
+        renderCategories();
+        renderMenu();
+      }
+
+      render();
+    </script>
+    <script>
+      (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="5jCVWKMmELRn6wnHSj6-G";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+  </body>
+</html>
