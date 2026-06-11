@@ -42,6 +42,9 @@
   function sendToChatbase(message) {
     if (!message || typeof window.chatbase !== "function") return false;
 
+    // Chatbase's public embed reliably supports opening the widget.
+    // Dynamic outside-the-iframe auto-send is not documented and may be ignored,
+    // so these attempts are best-effort only. We keep the visible fallback below.
     const commandAttempts = [
       ["sendMessage", message],
       ["sendMessage", { message }],
@@ -54,11 +57,9 @@
       ["query", { message }]
     ];
 
-    let sent = false;
     commandAttempts.forEach((args) => {
       try {
         window.chatbase(...args);
-        sent = true;
       } catch (_) {}
     });
 
@@ -72,21 +73,26 @@
           },
           "*"
         );
-        sent = true;
       } catch (_) {}
     });
 
-    return sent;
+    return false;
   }
 
   function showFallback(message) {
-    const fallback = document.querySelector("[data-chatbase-fallback]");
+    let fallback = document.getElementById("chatbase-fallback-toast");
+    if (!fallback) {
+      fallback = document.createElement("p");
+      fallback.className = "chatbase-fallback";
+      fallback.id = "chatbase-fallback-toast";
+      document.body.appendChild(fallback);
+    }
     if (!fallback) return;
-    fallback.textContent = `已为您准备问题：${message}`;
+    fallback.textContent = `Chatbase 已打开。问题已复制，请贴到聊天框发送：${message}`;
     fallback.hidden = false;
     window.setTimeout(() => {
       fallback.hidden = true;
-    }, 5000);
+    }, 10000);
   }
 
   function handleQuickAction(event) {
@@ -99,7 +105,7 @@
 
     window.setTimeout(() => {
       const sent = sendToChatbase(message);
-      if (!sent && navigator.clipboard) {
+      if (navigator.clipboard) {
         navigator.clipboard.writeText(message).catch(() => {});
       }
       if (!sent) showFallback(message);
