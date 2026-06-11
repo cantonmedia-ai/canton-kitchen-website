@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-Hans">
   <head>
     <meta charset="utf-8" />
@@ -19,7 +19,7 @@
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 7h12l-1 14H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
           <span>Order Online</span>
         </a>
-        <a class="mini-btn mini-green" href="https://wa.me/" target="_blank" rel="noreferrer">
+        <a class="mini-btn mini-green" href="https://wa.me/60162786288" target="_blank" rel="noreferrer">
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21l1.7-5.1A9 9 0 1 1 8 19.2z"/></svg>
           <span>WhatsApp</span>
         </a>
@@ -88,7 +88,7 @@
         </div>
         <div class="band-actions">
           <a class="btn btn-green" href="#featured">问 AI 服务员</a>
-          <a class="btn btn-outline" href="https://wa.me/" target="_blank" rel="noreferrer">直接 WhatsApp</a>
+          <a class="btn btn-outline" href="https://wa.me/60162786288" target="_blank" rel="noreferrer">直接 WhatsApp</a>
         </div>
       </section>
 
@@ -100,7 +100,7 @@
     </main>
 
     <footer id="order" class="menu-action-footer">
-      <a href="https://wa.me/" target="_blank" rel="noreferrer">
+      <a href="https://wa.me/60162786288" target="_blank" rel="noreferrer">
         <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21l1.7-5.1A9 9 0 1 1 8 19.2z"/></svg>
         <span>WhatsApp<small>咨询 / 订位</small></span>
       </a>
@@ -325,7 +325,7 @@
       function whatsappLink(item) {
         const outlet = outlets.find((entry) => entry.id === selectedOutlet);
         const message = `您好，我想咨询老招牌菜单。\\n门店: ${outlet.name}\\n菜品: ${item.chineseName} ${item.englishName}\\n请问今天有供应吗？`;
-        return `https://wa.me/?text=${encodeURIComponent(message)}`;
+        return `https://wa.me/60162786288?text=${encodeURIComponent(message)}`;
       }
 
       function renderMenu() {
