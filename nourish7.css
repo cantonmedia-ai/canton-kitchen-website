@@ -159,6 +159,19 @@
   box-shadow: 0 8px 22px rgba(97, 50, 20, 0.08);
 }
 
+.flavor-grid article[role="button"] {
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.flavor-grid article[role="button"]:hover,
+.flavor-grid article[role="button"]:focus-visible {
+  border-color: rgba(201, 149, 60, 0.42);
+  box-shadow: 0 16px 30px rgba(81, 47, 22, 0.14);
+  transform: translateY(-2px);
+  outline: none;
+}
+
 .feature-grid article {
   padding: 22px 14px;
 }

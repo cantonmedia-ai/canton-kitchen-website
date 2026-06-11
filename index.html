@@ -60,7 +60,7 @@
             <strong>菜单</strong>
             <small>查看招牌菜色</small>
           </a>
-          <a class="quick-card accent-gold" href="#ai">
+          <a class="quick-card accent-gold" href="#ai" data-chatbase-message="请根据人数、预算和口味帮我推荐老招牌菜品">
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 19h12"/><path d="M8 19v-6a4 4 0 0 1 8 0v6"/><path d="M9 8a3 3 0 1 1 6 0"/></svg>
             <strong>AI 配菜</strong>
             <small>按人数预算推荐</small>
@@ -114,9 +114,20 @@
           <p>让 AI 服务员根据人数、预算、口味与门店，帮您快速配一桌适合的菜。</p>
         </div>
         <div class="band-actions">
-          <a class="btn btn-green" href="#contact">问 AI 服务员</a>
+          <a class="btn btn-green" href="#ai" data-chatbase-message="请根据人数、预算、口味与门店，帮我快速配一桌适合的菜">问 AI 服务员</a>
           <a class="btn btn-outline" href="https://wa.me/60162786288" target="_blank" rel="noreferrer">直接 WhatsApp</a>
         </div>
+      </section>
+
+      <section class="ai-action-section" aria-label="AI quick questions">
+        <div class="ai-action-head">
+          <div>
+            <h2>快速问 AI</h2>
+            <p>点一下，直接带问题进入 Chatbase。</p>
+          </div>
+        </div>
+        <div class="ai-action-grid" data-chatbase-actions="default"></div>
+        <p class="chatbase-fallback" data-chatbase-fallback hidden></p>
       </section>
 
       <section id="promo" class="promo">
@@ -206,6 +217,8 @@
     </nav>
 
     <script src="script.js"></script>
+    <script src="chatbase-actions.config.js"></script>
+    <script src="chatbase-actions.js"></script>
     <script>
       (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="5jCVWKMmELRn6wnHSj6-G";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
     </script>

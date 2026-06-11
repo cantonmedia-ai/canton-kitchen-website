@@ -104,7 +104,12 @@
           <h2>想确认今天有什么汤？</h2>
           <p>汤品供应会根据门店与当天准备情况调整，请 WhatsApp 或到店确认。</p>
         </div>
-        <a class="btn btn-green" href="https://wa.me/60162786288" target="_blank" rel="noreferrer">WhatsApp 咨询汤品</a>
+        <div class="cta-actions">
+          <a class="btn btn-green" href="#soups" data-chatbase-message="请介绍今天的炭火慢煲汤，包括口味、适合谁喝和推荐搭配">问 AI 汤品</a>
+          <a class="btn btn-gold" href="https://wa.me/60162786288" target="_blank" rel="noreferrer">WhatsApp 咨询汤品</a>
+        </div>
+        <div class="ai-action-grid" data-chatbase-actions="soup"></div>
+        <p class="chatbase-fallback" data-chatbase-fallback hidden></p>
       </section>
     </main>
 
@@ -122,6 +127,8 @@
     </nav>
 
     <script src="script.js"></script>
+    <script src="chatbase-actions.config.js"></script>
+    <script src="chatbase-actions.js"></script>
     <script>
       (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="5jCVWKMmELRn6wnHSj6-G";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
     </script>

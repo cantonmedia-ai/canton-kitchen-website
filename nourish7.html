@@ -54,7 +54,7 @@
             <strong>RM198 <small>/ 6 瓶<br />推荐配套</small></strong>
           </div>
           <div class="hero-actions">
-            <a class="btn btn-green" href="#flavors">帮我选口味</a>
+            <a class="btn btn-green" href="#flavors" data-chatbase-message="我想选择Nourish7现炖燕窝口味，请根据年龄、用途和口味偏好帮我推荐">帮我选口味</a>
             <a class="btn btn-gold" href="https://wa.me/60162786288" target="_blank" rel="noreferrer">立即预订</a>
           </div>
         </div>
@@ -100,13 +100,13 @@
         <h2><span></span>选择适合您的口味<span></span></h2>
         <p>不同年龄、用途和喜好，可以选择不同搭配。第一次尝试可以从原味冰糖开始。</p>
         <div class="flavor-grid">
-          <article><img src="assets/nourish-flavor-rock-user.png" alt="Rock sugar" /><b>原味冰糖</b><small>适合清甜，第一次尝试最稳。</small></article>
-          <article><img src="assets/nourish-flavor-red-user.png" alt="Red date and goji" /><b>冰糖枸杞红枣</b><small>温润养生，适合日常保养与长辈。</small></article>
-          <article><img src="assets/nourish-flavor-rose-user.png" alt="Rose" /><b>冰糖玫瑰</b><small>淡淡花香，适合女生保养。</small></article>
-          <article><img src="assets/nourish-flavor-chrys-user.png" alt="Chrysanthemum" /><b>冰糖菊花</b><small>清甜口感，适合饭后享用。</small></article>
-          <article><img src="assets/nourish-flavor-luo-user.png" alt="Luo han guo" /><b>罗汉果糖</b><small>清甜不腻，适合喜欢轻甜口味。</small></article>
+          <article role="button" tabindex="0" data-chatbase-message="请介绍Nourish7原味冰糖现炖燕窝，适合什么人喝？"><img src="assets/nourish-flavor-rock-user.png" alt="Rock sugar" /><b>原味冰糖</b><small>适合清甜，第一次尝试最稳。</small></article>
+          <article role="button" tabindex="0" data-chatbase-message="请介绍Nourish7冰糖枸杞红枣现炖燕窝，适合什么人喝？"><img src="assets/nourish-flavor-red-user.png" alt="Red date and goji" /><b>冰糖枸杞红枣</b><small>温润养生，适合日常保养与长辈。</small></article>
+          <article role="button" tabindex="0" data-chatbase-message="请介绍Nourish7冰糖玫瑰现炖燕窝，适合什么人喝？"><img src="assets/nourish-flavor-rose-user.png" alt="Rose" /><b>冰糖玫瑰</b><small>淡淡花香，适合女生保养。</small></article>
+          <article role="button" tabindex="0" data-chatbase-message="请介绍Nourish7冰糖菊花现炖燕窝，适合什么人喝？"><img src="assets/nourish-flavor-chrys-user.png" alt="Chrysanthemum" /><b>冰糖菊花</b><small>清甜口感，适合饭后享用。</small></article>
+          <article role="button" tabindex="0" data-chatbase-message="请介绍Nourish7罗汉果糖现炖燕窝，适合什么人喝？"><img src="assets/nourish-flavor-luo-user.png" alt="Luo han guo" /><b>罗汉果糖</b><small>清甜不腻，适合喜欢轻甜口味。</small></article>
         </div>
-        <a class="ask-taste" href="https://wa.me/60162786288" target="_blank" rel="noreferrer">让 AI 帮我选口味</a>
+        <a class="ask-taste" href="#flavors" data-chatbase-message="我想选择Nourish7现炖燕窝口味，请根据年龄、用途和口味偏好帮我推荐">让 AI 帮我选口味</a>
       </section>
 
       <section class="nourish-section partner trust-partner poster-partner" id="quality">
@@ -133,8 +133,10 @@
           <h2>不知道选哪一种？</h2>
           <p>让 Nourish7 AI 先了解您的年龄、用途、口味偏好，帮您推荐合适的现炖燕窝或 DIY 配套。</p>
         </div>
-        <a class="btn btn-green" href="#flavors">问 Nourish7 AI</a>
+        <a class="btn btn-green" href="#flavors" data-chatbase-message="请介绍现炖燕窝配套，并帮我选择适合的口味和数量">问 Nourish7 AI</a>
         <a class="btn btn-gold" href="https://wa.me/60162786288" target="_blank" rel="noreferrer">直接 WhatsApp</a>
+        <div class="ai-action-grid" data-chatbase-actions="nourish7"></div>
+        <p class="chatbase-fallback" data-chatbase-fallback hidden></p>
         <img src="assets/nourish-small-bottle.jpg" alt="Nourish7 bottle" />
       </section>
 
@@ -144,11 +146,13 @@
     <footer id="order" class="menu-action-footer nourish-footer">
       <a href="https://wa.me/60162786288" target="_blank" rel="noreferrer">WhatsApp<small>咨询 / 订购</small></a>
       <a href="https://cantonkitchen.feedme.vip" target="_blank" rel="noreferrer">Order Online<small>在线点餐</small></a>
-      <a href="#flavors">Ask AI<small>燕窝建议</small></a>
+      <a href="#flavors" data-chatbase-message="请介绍现炖燕窝配套">Ask AI<small>燕窝建议</small></a>
       <a href="index.html#branches">Outlets<small>分店位置</small></a>
     </footer>
 
     <script src="script.js"></script>
+    <script src="chatbase-actions.config.js"></script>
+    <script src="chatbase-actions.js"></script>
     <script>
       (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="5jCVWKMmELRn6wnHSj6-G";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
     </script>

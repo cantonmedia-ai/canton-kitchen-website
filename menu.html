@@ -87,9 +87,11 @@
           <div class="tag-row"><span>人数</span><span>预算</span><span>口味偏好</span><span>有小孩/长辈</span><span>不吃辣等</span></div>
         </div>
         <div class="band-actions">
-          <a class="btn btn-green" href="#featured">问 AI 服务员</a>
+          <a class="btn btn-green" href="#featured" data-chatbase-message="请推荐适合第一次到访顾客的老招牌菜品">问 AI 服务员</a>
           <a class="btn btn-outline" href="https://wa.me/60162786288" target="_blank" rel="noreferrer">直接 WhatsApp</a>
         </div>
+        <div class="ai-action-grid" data-chatbase-actions="menu"></div>
+        <p class="chatbase-fallback" data-chatbase-fallback hidden></p>
       </section>
 
       <section class="menu-wrap menu-note">
@@ -119,6 +121,8 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="chatbase-actions.config.js"></script>
+    <script src="chatbase-actions.js"></script>
     <script>
       const outlets = [
         {
@@ -343,7 +347,7 @@
               <p class="dish-english">${item.englishName}</p>
               <p>${item.description}</p>
               <div class="menu-card-actions">
-                <a href="#featured">Ask AI</a>
+                <a href="#featured" data-chatbase-message="请介绍${item.chineseName} ${item.englishName}，并建议适合几个人分享和怎样搭配其他菜">Ask AI</a>
                 <a href="${whatsappLink(item)}" target="_blank" rel="noreferrer">WhatsApp</a>
               </div>
             </div>

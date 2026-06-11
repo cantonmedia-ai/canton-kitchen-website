@@ -392,7 +392,7 @@
               <li>焖煮至食材入味即可。</li>
             </ol>
             <div class="card-actions">
-              <a class="btn btn-green" href="#ai-selection">问 AI 怎样煮</a>
+              <a class="btn btn-green" id="recipe-ai-link" href="#ai-selection" data-chatbase-message="请用南洋咖喱酱推荐一道简单家常做法">问 AI 怎样煮</a>
               <a class="btn btn-gold" href="https://wa.me/60162786288" target="_blank" rel="noreferrer">WhatsApp 咨询</a>
             </div>
           </div>
@@ -405,7 +405,9 @@
           <h2>不知道选哪一种？</h2>
           <p>告诉 AI 您想煮鸡、鱼、海鲜、面饭还是家常菜，让 AI 根据菜式、食材和口味帮您选择适合的老招牌产品。</p>
         </div>
-        <a class="btn btn-green" href="#recipes">问 AI 选料理酱</a>
+        <a class="btn btn-green" href="#recipes" data-chatbase-message="我想了解老招牌出品料理酱，请根据我想煮的菜推荐">问 AI 选料理酱</a>
+        <div class="ai-action-grid" data-chatbase-actions="paste"></div>
+        <p class="chatbase-fallback" data-chatbase-fallback hidden></p>
       </section>
 
       <section id="order" class="paste-section order-cta">
@@ -423,11 +425,13 @@
     <footer class="menu-action-footer paste-footer">
       <a href="https://wa.me/60162786288" target="_blank" rel="noreferrer">WhatsApp<small>咨询 / 订购</small></a>
       <a href="https://cantonkitchen.feedme.vip" target="_blank" rel="noreferrer">Order Online<small>咨询供应</small></a>
-      <a href="#ai-selection">Ask AI<small>选料理酱</small></a>
+      <a href="#ai-selection" data-chatbase-message="我想了解老招牌出品料理酱，请根据我想煮的菜推荐">Ask AI<small>选料理酱</small></a>
       <a href="index.html#branches">Outlets<small>分店位置</small></a>
     </footer>
 
     <script src="script.js"></script>
+    <script src="chatbase-actions.config.js"></script>
+    <script src="chatbase-actions.js"></script>
     <script>
       const recipeData = {
         "nanyang-curry-paste": {
@@ -544,6 +548,7 @@
       const recipeDishes = document.getElementById("recipe-dishes");
       const recipeIngredients = document.getElementById("recipe-ingredients");
       const recipeSteps = document.getElementById("recipe-steps");
+      const recipeAiLink = document.getElementById("recipe-ai-link");
 
       function showRecipe(id) {
         const recipe = recipeData[id];
@@ -556,6 +561,7 @@
         recipeDishes.textContent = recipe.dishes;
         recipeIngredients.textContent = recipe.ingredients;
         recipeSteps.innerHTML = recipe.steps.map((step) => `<li>${step}</li>`).join("");
+        recipeAiLink.dataset.chatbaseMessage = `请用${recipe.title}（${recipe.english}）推荐一道简单家常做法。适合菜式：${recipe.dishes}。请给我步骤。`;
       }
 
       tabs.forEach((tab) => {

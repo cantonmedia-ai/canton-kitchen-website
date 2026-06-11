@@ -39,7 +39,7 @@
           <div class="hero-actions">
             <a class="btn btn-green" href="https://wa.me/60162786288" target="_blank" rel="noreferrer">咨询宴会 / 包厢</a>
             <a class="btn btn-gold" href="menu.html">查看菜单</a>
-            <a class="btn btn-outline" href="#enquiry">让 AI 帮我配菜单</a>
+            <a class="btn btn-outline" href="#enquiry" data-chatbase-message="我想了解宴会厅预订方案，请根据人数、预算和活动类型帮我建议菜单与安排">让 AI 帮我配菜单</a>
           </div>
         </div>
       </section>
@@ -117,8 +117,10 @@
         </div>
         <div class="cta-actions">
           <a class="btn btn-green" href="https://wa.me/60162786288" target="_blank" rel="noreferrer">WhatsApp 咨询宴会安排</a>
-          <a class="btn btn-outline" href="menu.html">查看菜单</a>
+          <a class="btn btn-outline" href="#enquiry" data-chatbase-message="请介绍包厢与宴会厅方案">问 AI 宴会方案</a>
         </div>
+        <div class="ai-action-grid" data-chatbase-actions="eventHall"></div>
+        <p class="chatbase-fallback" data-chatbase-fallback hidden></p>
       </section>
     </main>
 
@@ -136,6 +138,8 @@
     </nav>
 
     <script src="script.js"></script>
+    <script src="chatbase-actions.config.js"></script>
+    <script src="chatbase-actions.js"></script>
     <script>
       (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="5jCVWKMmELRn6wnHSj6-G";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
     </script>
