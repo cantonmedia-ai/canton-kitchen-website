@@ -236,44 +236,16 @@
   border-radius: 8px;
 }
 
-.red-package {
-  position: relative;
-  min-height: 330px;
-  padding: 26px;
-  color: white;
-  background: linear-gradient(135deg, #a8160e, #c12a16);
+.package-poster {
+  background: #fff8ee;
+  border: 1px solid rgba(155, 82, 32, 0.14);
+  box-shadow: 0 10px 24px rgba(97, 50, 20, 0.08);
 }
 
-.red-package h2 {
-  color: white;
-  font-size: 30px;
-}
-
-.red-package img {
-  position: absolute;
-  right: 10px;
-  bottom: 0;
-  width: 52%;
-  opacity: 0.9;
-}
-
-.red-package a {
-  position: absolute;
-  bottom: 22px;
-  left: 26px;
-  display: inline-flex;
-  padding: 14px 34px;
-  color: white;
-  background: #111;
-  border-radius: 8px;
-  font-weight: 900;
-}
-
-.diy-package img {
+.package-poster img {
   width: 100%;
-  height: 100%;
-  min-height: 330px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 
 .flavor-grid {
@@ -474,7 +446,7 @@
   }
 
   .package-row {
-    grid-template-columns: 0.9fr 1.45fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .flavor-grid {
