@@ -39,60 +39,61 @@
     }
   }
 
-  function sendToChatbase(message) {
-    if (!message || typeof window.chatbase !== "function") return false;
+  function ensurePromptPanel() {
+    let panel = document.getElementById("chatbase-prompt-panel");
+    if (panel) return panel;
 
-    // Chatbase's public embed reliably supports opening the widget.
-    // Dynamic outside-the-iframe auto-send is not documented and may be ignored,
-    // so these attempts are best-effort only. We keep the visible fallback below.
-    const commandAttempts = [
-      ["sendMessage", message],
-      ["sendMessage", { message }],
-      ["send", message],
-      ["send", { message }],
-      ["message", message],
-      ["setMessage", message],
-      ["setInput", message],
-      ["query", message],
-      ["query", { message }]
-    ];
+    panel = document.createElement("div");
+    panel.id = "chatbase-prompt-panel";
+    panel.className = "chatbase-prompt-panel";
+    panel.hidden = true;
+    panel.innerHTML = `
+      <div class="chatbase-prompt-card" role="dialog" aria-modal="false" aria-labelledby="chatbase-prompt-title">
+        <button class="chatbase-prompt-close" type="button" aria-label="关闭">×</button>
+        <p class="chatbase-prompt-kicker">AI 快速问题</p>
+        <h2 id="chatbase-prompt-title">已为您准备好问题</h2>
+        <p class="chatbase-prompt-message"></p>
+        <div class="chatbase-prompt-actions">
+          <button class="btn btn-green" type="button" data-chatbase-copy-open>复制并打开 AI</button>
+          <button class="btn btn-outline" type="button" data-chatbase-copy>只复制问题</button>
+        </div>
+        <small>Chatbase 打开后，直接贴上并发送即可。</small>
+      </div>
+    `;
+    document.body.appendChild(panel);
 
-    commandAttempts.forEach((args) => {
-      try {
-        window.chatbase(...args);
-      } catch (_) {}
+    panel.querySelector(".chatbase-prompt-close").addEventListener("click", () => {
+      panel.hidden = true;
+    });
+    panel.addEventListener("click", (event) => {
+      if (event.target === panel) panel.hidden = true;
+    });
+    panel.querySelector("[data-chatbase-copy-open]").addEventListener("click", () => {
+      copyMessage(panel.dataset.message || "");
+      openChatbase();
+      panel.hidden = true;
+    });
+    panel.querySelector("[data-chatbase-copy]").addEventListener("click", () => {
+      copyMessage(panel.dataset.message || "");
+      panel.querySelector("small").textContent = "问题已复制，可以贴到 Chatbase 聊天框。";
     });
 
-    document.querySelectorAll('iframe[src*="chatbase"]').forEach((frame) => {
-      try {
-        frame.contentWindow.postMessage(
-          {
-            type: "chatbase-send-message",
-            event: "sendMessage",
-            message
-          },
-          "*"
-        );
-      } catch (_) {}
-    });
-
-    return false;
+    return panel;
   }
 
-  function showFallback(message) {
-    let fallback = document.getElementById("chatbase-fallback-toast");
-    if (!fallback) {
-      fallback = document.createElement("p");
-      fallback.className = "chatbase-fallback";
-      fallback.id = "chatbase-fallback-toast";
-      document.body.appendChild(fallback);
+  function copyMessage(message) {
+    if (!message) return;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(message).catch(() => {});
     }
-    if (!fallback) return;
-    fallback.textContent = `Chatbase 已打开。问题已复制，请贴到聊天框发送：${message}`;
-    fallback.hidden = false;
-    window.setTimeout(() => {
-      fallback.hidden = true;
-    }, 10000);
+  }
+
+  function showPromptPanel(message) {
+    const panel = ensurePromptPanel();
+    panel.dataset.message = message;
+    panel.querySelector(".chatbase-prompt-message").textContent = message;
+    panel.querySelector("small").textContent = "Chatbase 打开后，直接贴上并发送即可。";
+    panel.hidden = false;
   }
 
   function handleQuickAction(event) {
@@ -101,15 +102,7 @@
     event.preventDefault();
 
     const message = trigger.dataset.chatbaseMessage;
-    openChatbase();
-
-    window.setTimeout(() => {
-      const sent = sendToChatbase(message);
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(message).catch(() => {});
-      }
-      if (!sent) showFallback(message);
-    }, 650);
+    showPromptPanel(message);
   }
 
   document.querySelectorAll("[data-chatbase-actions]").forEach(renderActionGrid);
@@ -123,8 +116,7 @@
   window.CKChatbase = {
     open: openChatbase,
     send: function (message) {
-      openChatbase();
-      window.setTimeout(() => sendToChatbase(message), 650);
+      showPromptPanel(message);
     }
   };
 })();

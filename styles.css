@@ -376,16 +376,87 @@ h1 span {
   font-weight: 800;
 }
 
-#chatbase-fallback-toast {
+.chatbase-prompt-panel {
   position: fixed;
-  right: 14px;
-  bottom: 88px;
-  left: 14px;
-  z-index: 50;
-  width: auto;
-  max-width: 720px;
-  margin: 0 auto;
-  box-shadow: 0 18px 34px rgba(26, 20, 10, 0.18);
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: end center;
+  padding: 18px;
+  background: rgba(23, 18, 12, 0.24);
+  backdrop-filter: blur(8px);
+}
+
+.chatbase-prompt-panel[hidden] {
+  display: none;
+}
+
+.chatbase-prompt-card {
+  position: relative;
+  width: min(560px, 100%);
+  padding: 20px;
+  color: var(--ink);
+  background: rgba(255, 252, 246, 0.98);
+  border: 1px solid rgba(201, 149, 60, 0.28);
+  border-radius: 14px;
+  box-shadow: 0 22px 48px rgba(26, 20, 10, 0.24);
+}
+
+.chatbase-prompt-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 38px;
+  height: 38px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.chatbase-prompt-kicker {
+  margin-bottom: 5px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.chatbase-prompt-card h2 {
+  margin-bottom: 10px;
+  padding-right: 38px;
+  font-size: clamp(23px, 5vw, 30px);
+}
+
+.chatbase-prompt-message {
+  margin-bottom: 16px;
+  padding: 14px;
+  white-space: pre-wrap;
+  color: #2c271f;
+  background: #fff7ea;
+  border: 1px solid rgba(201, 149, 60, 0.24);
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+.chatbase-prompt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.chatbase-prompt-actions .btn {
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.chatbase-prompt-card small {
+  color: var(--muted);
+  font-weight: 800;
 }
 
 .assistant-band .ai-action-grid,
